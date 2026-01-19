@@ -60,7 +60,7 @@ function LoginForm() {
         <div className="bg-red-600 p-3 rounded-lg mb-4">
           <Newspaper className="w-8 h-8 text-white" />
         </div>
-        <h1 className="text-2xl font-bold text-gray-900">News Portal</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Lucent News</h1>
         <p className="text-gray-600 mt-2">Sign in to admin dashboard</p>
       </div>
 

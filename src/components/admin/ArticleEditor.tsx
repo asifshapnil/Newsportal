@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { Loader2, Save, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { ImageUpload } from "./ImageUpload";
+import { RichTextEditor } from "./RichTextEditor";
 
 const articleSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -30,6 +31,7 @@ export function ArticleEditor({ articleId }: ArticleEditorProps) {
   const router = useRouter();
   const utils = trpc.useUtils();
   const [featuredImage, setFeaturedImage] = useState<string>("");
+  const [content, setContent] = useState<string>("");
 
   const { data: categories } = trpc.category.getAll.useQuery();
   const { data: article, isLoading: isLoadingArticle } = trpc.article.getById.useQuery(
@@ -69,6 +71,7 @@ export function ArticleEditor({ articleId }: ArticleEditorProps) {
         status: article.status,
       });
       setFeaturedImage(article.featuredImage || "");
+      setContent(article.content);
     }
   }, [article, reset]);
 
@@ -85,6 +88,11 @@ export function ArticleEditor({ articleId }: ArticleEditorProps) {
       setValue("slug", slug);
     }
   }, [title, articleId, setValue]);
+
+  // Sync content state with form
+  useEffect(() => {
+    setValue("content", content);
+  }, [content, setValue]);
 
   const createMutation = trpc.article.create.useMutation({
     onSuccess: () => {
@@ -104,6 +112,7 @@ export function ArticleEditor({ articleId }: ArticleEditorProps) {
   const onSubmit = (data: ArticleFormData) => {
     const payload = {
       ...data,
+      content,
       featuredImage: featuredImage || undefined,
     };
 
@@ -198,13 +207,12 @@ export function ArticleEditor({ articleId }: ArticleEditorProps) {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Content (HTML)
+                  Content
                 </label>
-                <textarea
-                  {...register("content")}
-                  rows={15}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition font-mono text-sm"
-                  placeholder="<p>Write your article content here...</p>"
+                <RichTextEditor
+                  content={content}
+                  onChange={setContent}
+                  placeholder="Write your article content here..."
                 />
                 {errors.content && (
                   <p className="mt-1 text-sm text-red-600">{errors.content.message}</p>

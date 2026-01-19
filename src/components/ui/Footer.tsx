@@ -17,7 +17,7 @@ export function Footer() {
               <div className="bg-[#B80000] p-1.5 rounded">
                 <Newspaper className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-white">News Portal</span>
+              <span className="text-xl font-bold text-white">Lucent News</span>
             </Link>
             <p className="text-sm text-gray-400 max-w-md">
               Your trusted source for breaking news, in-depth analysis, and
@@ -72,7 +72,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-500">
-          <p>&copy; {new Date().getFullYear()} News Portal. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Lucent News. All rights reserved.</p>
         </div>
       </div>
     </footer>

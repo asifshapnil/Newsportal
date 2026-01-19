@@ -72,7 +72,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <div className="bg-red-600 p-1.5 rounded">
               <Newspaper className="w-5 h-5 text-white" />
             </div>
-            <span className="text-white font-semibold">News Portal</span>
+            <span className="text-white font-semibold">Lucent News</span>
           </Link>
           <button
             className="lg:hidden text-gray-400 hover:text-white"

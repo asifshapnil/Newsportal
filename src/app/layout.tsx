@@ -11,12 +11,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "News Portal - Your Trusted Source for Breaking News",
-    template: "%s | News Portal",
+    default: "Lucent News - Your Trusted Source for Breaking News",
+    template: "%s | Lucent News",
   },
   description:
     "Get the latest breaking news, in-depth analysis, and comprehensive coverage of politics, sports, technology, business, and entertainment.",
-  keywords: ["news", "breaking news", "politics", "sports", "technology", "business"],
+  keywords: ["news", "breaking news", "politics", "sports", "technology", "business", "lucent news"],
 };
 
 export default function RootLayout({

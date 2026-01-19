@@ -33,7 +33,7 @@ export function Navbar() {
               <div className="bg-white p-1.5 rounded">
                 <Newspaper className="w-6 h-6 text-[#B80000]" />
               </div>
-              <span className="text-2xl font-bold">News Portal</span>
+              <span className="text-2xl font-bold">Lucent News</span>
             </Link>
 
             <div className="hidden md:flex items-center gap-4">
